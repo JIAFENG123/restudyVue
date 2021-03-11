@@ -1,20 +1,25 @@
 <template>
   <div class="root">
-    <p>App.</p>
+    <p>App.组件传值</p>
     <ul>
-      <li>
-        <Parent1 />
+      <li v-for="item in parents" :key="item.name">
+        <component :is="item"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Parent1 from "_c/group1/parent1";
+import parents from '_c'
 export default {
-  components: {
-    Parent1,
-  },
+  // components: {
+  //   ...parents
+  // },
+  data(){
+    return{
+      parents
+    }
+  }
 };
 </script>
 
